@@ -1,0 +1,18 @@
+[default]
+type=transport
+protocol=udp
+bind=0.0.0.0
+
+{% if LOCAL_NET is defined -%}
+{% set local_nets = LOCAL_NET.split(',') -%}
+{% for local_net in local_nets -%}
+local_net={{ local_net}}
+{% endfor -%}
+{% endif -%}
+
+{% if EXTERNAL_ADDRESS is defined -%}
+external_media_address={{ EXTERNAL_ADDRESS }}
+external_signaling_address={{ EXTERNAL_ADDRESS }}
+{% endif -%}
+
+#tryinclude "verboice/pjsip_verboice.conf"
