@@ -13,6 +13,7 @@ local_net={{ local_net}}
 {% if EXTERNAL_ADDRESS is defined -%}
 external_media_address={{ EXTERNAL_ADDRESS }}
 external_signaling_address={{ EXTERNAL_ADDRESS }}
+media_address={{ EXTERNAL_ADDRESS }}
 {% endif -%}
 
 #tryinclude "verboice/*.conf"
